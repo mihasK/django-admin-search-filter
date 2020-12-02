@@ -6,7 +6,7 @@ __all__ = []
 
 
 from django.contrib import admin
-
+from django.db.models import Q
 
 
 class InputFilter(admin.SimpleListFilter):
@@ -27,36 +27,47 @@ class InputFilter(admin.SimpleListFilter):
         )
         yield all_choice
 
+import typing
+def get_icontains_input_filter(title_, attrs: typing.Union[list, tuple, str]):
 
-def get_icontains_input_filter(title_, parameter_name_):
+
+    if isinstance(attrs, str):
+        attrs = (attrs, )
 
     class FilterCls(InputFilter):
 
-        parameter_name = parameter_name_ + '_icontains'
+        parameter_name = '-'.join(attrs) + '-icontains'
         title = title_
 
         def queryset(self, request, queryset):
+
             if self.value():
-                return queryset.filter(**{
-                    '%s__icontains' % parameter_name_: self.value()
-                })
+                query = Q()
+                for a in attrs:
+                    query |= Q(**{
+                        '%s__icontains' % a: self.value()
+                    })
+
+                return queryset.filter(query)
             return queryset
 
     return FilterCls
 
 
-def get_exact_equals_input_filter(title_, parameter_name_):
+def get_exact_equals_input_filter(title_, attrs: typing.Union[list, tuple, str]):
 
     class FilterCls(InputFilter):
-
-        parameter_name = parameter_name_ + '_equals'
+        parameter_name = '-'.join(attrs) + '-equals'
         title = title_
 
         def queryset(self, request, queryset):
             if self.value():
-                return queryset.filter(**{
-                    '%s' % parameter_name_: self.value()
-                })
+                query = Q()
+                for a in attrs:
+                    query |= Q(**{
+                        '%s__iexact' % a: self.value()
+                    })
+                return queryset.filter(query)
             return queryset
 
     return FilterCls
