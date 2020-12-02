@@ -11,6 +11,9 @@ django_admin_search_filter
 
 Allows to create admin list filter as a search box for free-input
 
+Idea is taken from this Medium article: https://hakibenita.medium.com/how-to-add-a-text-filter-to-django-admin-5d1db93772d8
+
+
 Usage
 -----
 
