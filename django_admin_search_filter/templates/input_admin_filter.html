@@ -2,7 +2,7 @@
 
 {% load i18n admin_urls %}
 
-<h3>{% blocktrans with filter_title=title %} By {{ filter_title }} {% endblocktrans %}</h3>
+<h3>{% blocktrans with filter_title=title %} Search by {{ filter_title }} {% endblocktrans %}</h3>
 <ul>
   <li>
     {% with choices.0 as all_choice %}
