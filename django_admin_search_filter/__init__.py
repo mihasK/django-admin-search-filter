@@ -55,6 +55,8 @@ def get_icontains_input_filter(title_, attrs: typing.Union[list, tuple, str]):
 
 
 def get_exact_equals_input_filter(title_, attrs: typing.Union[list, tuple, str]):
+    if isinstance(attrs, str):
+        attrs = (attrs, )
 
     class FilterCls(InputFilter):
         parameter_name = '-'.join(attrs) + '-equals'
