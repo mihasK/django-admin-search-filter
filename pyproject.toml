@@ -1,10 +1,14 @@
 [tool.poetry]
 name = "django-admin-search-filter"
-version = "0.1.1"
+version = "0.1.3"
 description = "Allows to create admin list filter as a search box for free-input"
 authors = ["mihas <mihasK@users.noreply.github.com>"]
 readme = "README.rst"
 packages = [{include = "django_admin_search_filter"}]
+
+homepage = "https://github.com/mihasK/django-admin-search-filter/"
+
+repository = "https://github.com/mihasK/django-admin-search-filter/"
 
 [tool.poetry.dependencies]
 python = "~3"
