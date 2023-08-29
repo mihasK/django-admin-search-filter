@@ -49,6 +49,12 @@ Usage
         )
 
 
+Will result in the following UI:
+
+.. image:: docs/admin_list_filters_screenshot.png
+  :width: 300
+  :alt: Alternative text
+
 
 
 
