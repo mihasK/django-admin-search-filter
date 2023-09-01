@@ -1,13 +1,9 @@
 Django admin search filter
 ==========================
 
-.. image:: https://img.shields.io/pypi/v/django_admin_search_filter.svg
+.. image:: https://img.shields.io/pypi/v/django_admin_search_filter?label=django_admin_search_filter&link=https%3A%2F%2Fpypi.org%2Fproject%2Fdjango-admin-search-filter%2F
     :target: https://pypi.python.org/pypi/django_admin_search_filter
-    :alt: Latest PyPI version
-
-.. image:: https://travis-ci.org/kragniz/cookiecutter-pypackage-minimal.png
-   :target: https://travis-ci.org/kragniz/cookiecutter-pypackage-minimal
-   :alt: Latest Travis CI build status
+    :alt: PyPI - Version
 
 Provides special type of django-admin list filter -- search box with free user input allowed.
 
